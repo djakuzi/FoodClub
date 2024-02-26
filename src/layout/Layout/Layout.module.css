@@ -58,11 +58,20 @@
     color: var(--text-color)
 }
 
+.link:hover{
+    color: var(--primary-color);
+}
+
 .link img{
     margin: 0;
     padding: 0;
     width: 23px;
     height: 23px;
+}
+
+
+.active{
+    color: var(--primary-color);
 }
 
 .exit{
@@ -78,6 +87,34 @@
 .exit img{
     width: 30px;
     height: 30px;
+}
+
+.content{
+    width: 100%;
+    padding: 40px 60px;
+}
+
+
+/* media */
+
+@media(max-width:750px){
+
+    .sidebar{
+        display: none;
+    }
+
+    .open{
+        display: flex;
+        align-items: center;
+    }
+
+    .user{
+        align-items: center;
+    }
+
+    .content{
+        padding: 20px 30px;
+    }
 }
 
 

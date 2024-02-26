@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import App from './App.tsx'
 import './index.css'
 import Cart from './pages/Cart/Cart';
 import Menu from './pages/Menu/Menu';
@@ -14,7 +13,7 @@ const Router = createBrowserRouter([
     element: <Layout />,
      children: [
       {
-        path: '/',
+        path: '/menu',
         element: <Menu />
       },
       {
@@ -30,7 +29,6 @@ const Router = createBrowserRouter([
  
   
 ]); 
-
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
