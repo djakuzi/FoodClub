@@ -9,7 +9,7 @@ import cn from 'classnames';
     const location = useLocation()
 
     const [statusBurger, setStatusBurger] = useState<boolean>(false)
-
+    
     useEffect( ()=>{
         console.log(location)
     },[ location])

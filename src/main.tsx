@@ -6,6 +6,7 @@ import Cart from './pages/Cart/Cart';
 import Menu from './pages/Menu/Menu';
 import Error from './pages/Error/Error';
 import Layout from './layout/Layout/Layout';
+import Product from './pages/Product/Product';
 
 const Router = createBrowserRouter([
   {
@@ -20,9 +21,13 @@ const Router = createBrowserRouter([
         path: '/cart',
         element: <Cart />
       },
-       {
+      {
         path: '*',
         element: <Error /> // сделать страницу ошибки 
+      },
+      {
+        path: '/product/:id',
+        element: <Product /> // page product
       },
     ]
   },

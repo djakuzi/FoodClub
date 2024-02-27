@@ -11,7 +11,7 @@ import styles from './Menu.module.css';
         </div>
         <div>
             <ProductCard 
-            id= {1}
+            id = {1}
             title="Наслаждение"
             description="Салями, руккола, помидоры, оливки" 
             rating={4.5}
