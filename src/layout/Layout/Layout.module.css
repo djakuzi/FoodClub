@@ -1,9 +1,25 @@
+.burger {
+    margin: 0 auto;
+    display: none;
+    width: 37px;
+    height: 37px;
+    background-image: url(../../../public/layout/burger.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
 .layout{
+    position: relative;
     display: flex;
     min-height: 100vh;
 }
 
 .sidebar{
+    z-index: 1;
+    border-color: aliceblue;
+    overflow: hidden;
+    position: fixed;
+    height: 100vh;
     width: 250px;
     display: flex;
     padding: 30px;
@@ -75,9 +91,10 @@
 }
 
 .exit{
+    position: absolute;
+    top: calc(100% - 160px);
     align-self: center;
     width: 80%;
-    margin-top: auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -92,20 +109,46 @@
 .content{
     width: 100%;
     padding: 40px 60px;
+    margin-left: 300px;
+    transition: all .5s ease-in-out;
 }
 
 
 /* media */
 
-@media(max-width:750px){
+@media(max-width:850px){
+
+    @keyframes openSL {
+    
+    
+            from {
+                transform: translate(-300px);
+            }
+    
+            to {
+                transform: translate(0);
+            }
+        }
 
     .sidebar{
         display: none;
+        background-color: white;
+        
     }
 
     .open{
-        display: flex;
+        display: block;
         align-items: center;
+        animation: .4s openSL forwards;
+    }
+
+    .openContent{
+        opacity: 0.1;
+        /* z-index: 0.1; */
+    }
+
+    .openContent .burger{
+        opacity: 0;
     }
 
     .user{
@@ -114,7 +157,14 @@
 
     .content{
         padding: 20px 30px;
+        margin-left: 0px;
     }
+
+    .burger{
+        cursor: pointer;
+        display: block;
+    }
+
 }
 
 

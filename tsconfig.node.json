@@ -3,7 +3,7 @@
     "composite": true,
     "skipLibCheck": true,
     "module": "ESNext",
-    "moduleResolution": "node", //bundler
+    "moduleResolution": "Node", //bundler //node
     "allowSyntheticDefaultImports": true,
     "strict": true
   },

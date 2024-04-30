@@ -15,6 +15,7 @@ import cn from 'classnames';
     },[ location])
 
     return  <div className={styles['layout']}>
+        
 
         <div className={cn(styles['sidebar'], {
             [styles.open]: statusBurger, 
@@ -28,12 +29,12 @@ import cn from 'classnames';
 
 {/* NavLink, for change active with help useLocatin.psthname == 'url' start*/}
             <div className={styles['menu']}>
-        {/* 1 */} <NavLink to="/menu" className={ ({isActive}) => cn(styles['link'],{
+        {/* 1 */} <NavLink onClick={ () => setStatusBurger(false)} to="/menu" className={ ({isActive}) => cn(styles['link'],{
                     [styles.active]: isActive,
                 })}>  
                     <img src="/menu/menu.png" alt="лого меню" />
                     Меню</NavLink>
-        {/* 2 */} <Link to="cart" className={cn(styles['link'],{
+        {/* 2 */} <Link onClick={ () => setStatusBurger(false)} to="cart" className={cn(styles['link'],{
                     [styles['active']]: location.pathname === '/cart'
                 })}>
                     <img src="/cart/cart.png" alt="лого корзины" />
@@ -48,8 +49,19 @@ import cn from 'classnames';
 
         </div>
 
+ {/* className={styles['content']} */}
 
-        <div className={styles.content}>
+ {/* className={cn(styles['content'], {
+            [styles.open]: statusBurger, 
+            })} */}
+        <div className={cn(styles['content'], {
+            [styles.openContent]: statusBurger, 
+            })} >
+
+            <div onClick={ () => setStatusBurger(true)} className={styles['burger']}>
+
+            </div>
+
             <Outlet />
         </div>
     </div>

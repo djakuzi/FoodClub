@@ -4,25 +4,36 @@
 }
 
 .input {
+    z-index: 1;
+    cursor:default;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
     color: var(--text-color);
-    background-color: none;
-    background-color: #FCFCFD; ;
-    border: 1px solid _#EFEFEF;
-    box-shadow: 15px 20px 45px 0px Orgba(233, 233, 233, 0.25);
+    /* border: none; */
+    /* background-color: none; */
+    background-color: var(--input-color); 
+    border: 1px solid #EFEFEF;
+    /* box-shadow: 15px 20px 45px 0px Orgba(233, 233, 233, 0.25); */
     border-radius: 10px;
     padding: 16px 30px 16px 44px;
     min-width: 200px;
+    transition: background-color .1s ease-in-out;
+}
+.input:focus, .input:hover{
+    --input-color: #e15d3913;
 }
 
 .icon{
+    z-index: 0;
     position: absolute;
     left: -5px;
     width: 20%;
     height: 100%;
 }
 
+.icon:hover{
+    --input-color: #e15d3913;
+}
 
 

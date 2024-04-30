@@ -1,3 +1,10 @@
+# Ru
+Для запуска проекта с сервером нужно написать в консоли npm run test
+
+# En
+
+To run a project from the server, you need to write npm run test in the console
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

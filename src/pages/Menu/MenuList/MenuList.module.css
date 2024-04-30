@@ -1,0 +1,14 @@
+.wrapper{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2%;
+    margin-top: 40px;
+    
+}
+
+
+@media(max-width:1150px) {
+    .wrapper{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

@@ -1,14 +1,24 @@
-import styles from './Search.module.css';
-import cn from 'classnames'
-import { useLocation, useParams } from 'react-router-dom';
+
+import { Suspense } from 'react';
+import { Await, useLoaderData} from 'react-router-dom';
+import { Product } from '../../interface/product.interface';
+// import falseLoading from "../../data/data"
 
 export default function Product({}){
 
-    const {id}= useParams()
+    // const {id} = useParams()
+    const data = useLoaderData() as {data: Product};
  
     return (
         <>
-        product {id}
+        <Suspense fallback={'Загружаем...'}>
+            <Await resolve={data.data}>
+                {({data}: {data: Product}) => (
+                    <>product {data.title}</>
+                )}
+            </Await>
+         </Suspense>
+         
         </>
     )
 }
