@@ -9,7 +9,7 @@ export default function MenuList({products}:MenuListProprs){
                     key={p.id}
                     id = {p.id}
                     title={p.title}
-                    description={p.description.join(', ')} 
+                    ingredients={p.ingredients.join(', ')} 
                     rating={p.rating}
                     price={p.price}
                     image={p.image}

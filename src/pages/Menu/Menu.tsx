@@ -2,7 +2,7 @@ import axios, { AxiosError } from "axios";
 import { useEffect, useState } from "react";
 import Heading from "../../components/Headling/Heading";
 import Search from "../../components/Search/Search";
-import { PREFIX } from "../../helper/APi";
+import { PREFIX, PREFIXPURPLE } from "../../helper/APi";
 import { Product } from "../../interface/product.interface";
 import styles from './Menu.module.css';
 import MenuList from "./MenuList/MenuList";
@@ -26,7 +26,7 @@ import MenuList from "./MenuList/MenuList";
                 }, 1000)
             }) // for loading product
             
-            const {data} = await axios.get<Product[]>(PREFIX + '/products')
+            const {data} = await axios.get<Product[]>(PREFIXPURPLE + '/products')
             setProducts(data)
             setIsLoading(false)
         } catch (e) {
