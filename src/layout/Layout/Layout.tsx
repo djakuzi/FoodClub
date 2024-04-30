@@ -7,6 +7,7 @@ import menuIMG from "../../../public/menu/menu.png"
 import cartIMG from "../../../public/cart/cart.png"
 // import ProductCard from "../../components/ProductCard/ProductCard";
 import userIMG from "../../../public/layout/user.png"
+import exitIMG from "../../../public/layout/exit.png"
 
  export default function Layout(){
 
@@ -47,7 +48,7 @@ import userIMG from "../../../public/layout/user.png"
 {/*  end */}
 
             <Button className={styles['exit']}>
-                <img src="/layout/exit.png" alt="" />
+                <img src={exitIMG} alt="" />
                 Выход
             </Button>
 

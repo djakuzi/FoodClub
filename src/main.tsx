@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, defer, RouterProvider } from 'react-router-dom';
 import './index.css'
 import Cart from './pages/Cart/Cart';
-import Error from './pages/Error/Error';
+import ErrorPage from './pages/Error/Error';
 import Layout from './layout/Layout/Layout';
 import Product from './pages/Product/Product';
 import axios from 'axios';
 import { PREFIX } from './helper/APi';
+import AuthLayout from './layout/Auth/AuthLayout';
+import Login from './pages/Login/Login';
+import Register from './pages/Register/Register';
 // import falseLoading from "./data/data"
 
 const Menu = lazy(()=> import('./pages/Menu/Menu')) 
@@ -25,9 +28,9 @@ const Router = createBrowserRouter([
         path: '/cart',
         element: <Cart />
       },
-      {
+       {
         path: '*',
-        element: <Error /> // сделать страницу ошибки 
+        element: <ErrorPage /> // сделать страницу ошибки 
       },
       {
         path: '/product/:id', // page product
@@ -49,7 +52,25 @@ const Router = createBrowserRouter([
       },
     ]
   },
- 
+  {
+    path: "/auth",
+    element: <AuthLayout />,
+    children: [
+      {
+        path: "login",
+        element: <Login />
+      },
+       {
+        path: "register",
+        element: <Register />
+      },
+       {
+        path: '*',
+        element: <ErrorPage /> // сделать страницу ошибки 
+      },
+    ]
+  },
+
   
 ]); 
 

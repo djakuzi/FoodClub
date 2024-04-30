@@ -1,0 +1,28 @@
+
+.layout{
+    display: flex;
+    min-height: 100vh;
+}
+
+.auth{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth img{
+    display: block;
+    width: 100%;
+    max-width: 660px;
+}
+
+
+
+.content{
+    flex: 1;
+    border-left: 1px solid var(--separator-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
