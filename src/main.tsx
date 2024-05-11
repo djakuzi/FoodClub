@@ -7,7 +7,7 @@ import ErrorPage from './pages/Error/Error';
 import Layout from './layout/Layout/Layout';
 import Product from './pages/Product/Product';
 import axios from 'axios';
-import { PREFIX, PREFIXPURPLE } from './helper/APi';
+import { PREFIXPURPLE } from './helper/APi';
 import AuthLayout from './layout/Auth/AuthLayout';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
@@ -20,15 +20,15 @@ const Menu = lazy(()=> import('./pages/Menu/Menu'))
 
 const Router = createBrowserRouter([
   {
-    path: '/',
+    path: '/FoodClub',
     element: <ReguareAuth> <Layout /> </ReguareAuth> ,
      children: [
       {
-        path: '/menu',
+        path: 'menu',
         element: <Suspense fallback={<>Загрузка...</>}> <Menu /> </Suspense>
       }, 
       {
-        path: '/cart',
+        path: 'cart',
         element: <Cart />
       },
        {
@@ -36,7 +36,7 @@ const Router = createBrowserRouter([
         element: <ErrorPage /> // сделать страницу ошибки 
       },
       {
-        path: '/product/:id', // page product
+        path: 'product/:id', // page product
         element: <Product />,
         errorElement:<>error</>,
         loader: async ({params}) => {
@@ -56,7 +56,7 @@ const Router = createBrowserRouter([
     ]
   },
   {
-    path: "/auth",
+    path: "FoodClub/auth",
     element: <AuthLayout />,
     children: [
       {

@@ -12,8 +12,9 @@ export const store = configureStore({
 
 store.subscribe( ()=>{
     saveState({jwt: store.getState().user.jwt}, JWT_PERSISTENT_STATE)
-    console.log(store)
 })
+
+
 
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch

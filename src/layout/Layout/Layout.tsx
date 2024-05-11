@@ -8,22 +8,27 @@ import cartIMG from "../../../public/cart/cart.png"
 // import ProductCard from "../../components/ProductCard/ProductCard";
 import userIMG from "../../../public/layout/user.png"
 import exitIMG from "../../../public/layout/exit.png"
-import { JWT_PERSISTENT_STATE, userActions } from "../../store/user.slice";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "../../store/store";
+import { getProfile, JWT_PERSISTENT_STATE, userActions } from "../../store/user.slice";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../store/store";
 
  export default function Layout(){
 
     const location = useLocation()
     const navigate = useNavigate()
     const dispatch = useDispatch<AppDispatch>()
+    const profile = useSelector((s: RootState) => s.user.profile)
 
     const [statusBurger, setStatusBurger] = useState<boolean>(false)
+
+    useEffect( ()=>{
+        dispatch(getProfile())
+    },[dispatch])
 
     const logOut = ()=>{
         localStorage.removeItem(JWT_PERSISTENT_STATE)
         dispatch(userActions.logOut())
-        navigate("/auth/login")
+        navigate("/FoodClub/auth/login")
     }
     
     useEffect( ()=>{
@@ -39,19 +44,19 @@ import { AppDispatch } from "../../store/store";
 
             <div className={styles['user']}>
                 <img className={styles['avatar']} src={userIMG} alt="фото профиля"/>
-                <div className={styles['name']}>Матвей Ананьев</div>
-                <div className={styles['email']}>matvey.ananev.02@mail.ru</div>
+                <div className={styles['name']}>{profile?.name}</div>
+                <div className={styles['email']}>{profile?.email}</div>
             </div>
 
 {/* NavLink, for change active with help useLocatin.psthname == 'url' start*/}
             <div className={styles['menu']}>
-        {/* 1 */} <NavLink onClick={ () => setStatusBurger(false)} to="/menu" className={ ({isActive}) => cn(styles['link'],{
+        {/* 1 */} <NavLink onClick={ () => setStatusBurger(false)} to="/FoodClub/menu" className={ ({isActive}) => cn(styles['link'],{
                     [styles.active]: isActive,
                 })}>  
                     <img src={menuIMG} alt="лого меню" />
                     Меню</NavLink>
-        {/* 2 */} <Link onClick={ () => setStatusBurger(false)} to="/cart" className={cn(styles['link'],{
-                    [styles['active']]: location.pathname === '/cart'
+        {/* 2 */} <Link onClick={ () => setStatusBurger(false)} to="/FoodClub/cart" className={cn(styles['link'],{
+                    [styles['active']]: location.pathname === '/FoodClub/cart'
                 })}>
                     <img src={cartIMG} alt="лого корзины" />
                     Корзина</Link>

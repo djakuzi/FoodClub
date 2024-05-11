@@ -1,5 +1,6 @@
 
 .input-wrapper{
+    margin-left: 10px;
     position: relative;
 }
 
@@ -17,7 +18,7 @@
     /* box-shadow: 15px 20px 45px 0px Orgba(233, 233, 233, 0.25); */
     border-radius: 10px;
     padding: 16px 30px 16px 44px;
-    min-width: 200px;
+    width: 200px;
     transition: background-color .1s ease-in-out;
 }
 .input:focus, .input:hover{
@@ -34,6 +35,28 @@
 
 .icon:hover{
     --input-color: #e15d3913;
+}
+
+@media(max-width:450px) {
+    .input{
+        width: 170px;
+    }
+}
+
+@media(max-width:420px) {
+    .input {
+        text-overflow: ellipsis;
+        width: 60px;
+        padding: 16px 10px 16px 40px;
+    }
+
+    .icon {
+        z-index: 0;
+        position: absolute;
+        left: 0px;
+        width: 40%;
+        height: 100%;
+    }
 }
 
 

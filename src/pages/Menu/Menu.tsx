@@ -15,6 +15,7 @@ import MenuList from "./MenuList/MenuList";
     const [products, setProducts] = useState<Product[]>([])
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [error, setError] = useState<string | undefined>()
+    const [width, setWidth] = useState<number | string>(document.body.offsetWidth)
 
     const getMenu = async() => {
 
@@ -62,13 +63,15 @@ import MenuList from "./MenuList/MenuList";
 
     useEffect(()=>{
         getMenu()
+        window.addEventListener('resize', function(){ setWidth(document.body.offsetWidth)})
     },[])
 
+    
     return <>
 
         <div className={styles['head']}>
             <Heading>Меню</Heading>
-            <Search placeholder="Введите блюдо или состав"/>
+            <Search placeholder= { width > 420 ? "Введите блюдо или состав" : 'Поиск' }/>
         </div>
 
         <div>
