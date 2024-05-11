@@ -7,10 +7,13 @@ import ErrorPage from './pages/Error/Error';
 import Layout from './layout/Layout/Layout';
 import Product from './pages/Product/Product';
 import axios from 'axios';
-import { PREFIX } from './helper/APi';
+import { PREFIX, PREFIXPURPLE } from './helper/APi';
 import AuthLayout from './layout/Auth/AuthLayout';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
+import ReguareAuth from './helper/ReguareAuth';
+import { Provider } from 'react-redux';
+import { store } from './store/store';
 // import falseLoading from "./data/data"
 
 const Menu = lazy(()=> import('./pages/Menu/Menu')) 
@@ -18,12 +21,12 @@ const Menu = lazy(()=> import('./pages/Menu/Menu'))
 const Router = createBrowserRouter([
   {
     path: '/',
-    element: <Layout />,
+    element: <ReguareAuth> <Layout /> </ReguareAuth> ,
      children: [
       {
         path: '/menu',
         element: <Suspense fallback={<>Загрузка...</>}> <Menu /> </Suspense>
-      },
+      }, 
       {
         path: '/cart',
         element: <Cart />
@@ -39,7 +42,7 @@ const Router = createBrowserRouter([
         loader: async ({params}) => {
           
           return defer({
-            data: axios.get(PREFIX + '/products/' + params.id).then( data => data)
+            data: axios.get(PREFIXPURPLE + '/products/' + params.id).then( data => data)
           })
           // await new Promise<void>((resolve) => {
           //       setTimeout(()=>{
@@ -76,6 +79,9 @@ const Router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <RouterProvider router={Router} />
+    <Provider store={store}>
+      <RouterProvider router={Router} />
+    </Provider>
+    
   </React.StrictMode>,
 )

@@ -14,7 +14,7 @@ export default function Product({}){
         <Suspense fallback={'Загружаем...'}>
             <Await resolve={data.data}>
                 {({data}: {data: Product}) => (
-                    <>product {data.title}</>
+                    <>product {data.id} </>
                 )}
             </Await>
          </Suspense>
