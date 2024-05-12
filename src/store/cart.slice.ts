@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Action } from "@remix-run/router";
 import { loadState } from "./storage";
 
 export const CART_PERSISTENT_STATE = 'cartData'

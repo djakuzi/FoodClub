@@ -1,17 +1,22 @@
 
 import { Suspense } from 'react';
-import { Await, useLoaderData} from 'react-router-dom';
+import { Await, unstable_HistoryRouter, useLoaderData} from 'react-router-dom';
 import Button from '../../components/Button/Button';
 import { Product } from '../../interface/product.interface';
 import styles from './Product.module.css';
 import rating from "../../../public/menu/rating.png"
 import Heading from '../../components/Headling/Heading';
+import { useDispatch } from 'react-redux';
+import { cartActions } from '../../store/cart.slice';
+import {useNavigate} from 'react-router-dom'
 // import falseLoading from "../../data/data"
 
 export default function Product({}){
 
     // const {id} = useParams()
     const data = useLoaderData() as {data: Product};
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
  
     return (
         <>
@@ -22,7 +27,7 @@ export default function Product({}){
                     <div className={styles['product']}>
 
                         <div className={styles['header']}>
-                           <div className={styles['exit']}>{'<'}</div>
+                           <div onClick={ () => navigate(-1)} className={styles['exit']}>{'<'}</div>
                            <Heading className={styles['title']}>{data.name}</Heading>
                         </div>
 
@@ -55,7 +60,7 @@ export default function Product({}){
                         </div>
 
                          <div className={styles['add']}>
-                            <Button >В КОРЗИНУ</Button>
+                            <Button onClick={() => dispatch(cartActions.add(data.id))}>В КОРЗИНУ</Button>
                         </div>
                        
                     </div>
