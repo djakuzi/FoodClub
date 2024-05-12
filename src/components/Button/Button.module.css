@@ -1,4 +1,5 @@
 .button {
+    -webkit-tap-highlight-color: transparent;
     border-radius: 29px;
     color: white;
     font-family: inherit;

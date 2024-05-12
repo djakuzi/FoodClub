@@ -14,6 +14,7 @@ import Register from './pages/Register/Register';
 import ReguareAuth from './helper/ReguareAuth';
 import { Provider } from 'react-redux';
 import { store } from './store/store';
+import { Success } from './pages/Success/Success';
 // import falseLoading from "./data/data"
 
 const Menu = lazy(()=> import('./pages/Menu/Menu')) 
@@ -30,6 +31,10 @@ const Router = createBrowserRouter([
       {
         path: 'cart',
         element: <Cart />
+      },
+      {
+        path: "success",
+        element: <Success />
       },
        {
         path: '*',
@@ -67,6 +72,7 @@ const Router = createBrowserRouter([
         path: "register",
         element: <Register />
       },
+      
        {
         path: '*',
         element: <ErrorPage /> // сделать страницу ошибки 

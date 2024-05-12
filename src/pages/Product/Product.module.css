@@ -1,0 +1,155 @@
+
+.product{
+    margin: 0 auto;
+    max-width: 812px;
+    background-color: #d6d6d630;
+    border-radius: 20px;
+    padding: 15px;
+}
+
+.header{
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.exit{
+    cursor: pointer;
+    padding: 4px 10px;
+    background-color: #ffffff;
+    border-radius: 50%;
+
+}
+.exit:hover{
+    background-color: #d6d6d630;
+}
+
+.box{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    gap: 20px;
+}
+
+.image{
+    width: 50%;
+    max-width: 400px;
+    min-width: 300px;
+    height: 300px;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    background-size: cover;
+}
+
+.info{
+    align-self: center;
+    width: 100%;
+    max-width: 312px;
+    
+}
+
+.line{
+    display: flex;
+    justify-content: space-between;
+}
+
+.line:not(:last-child){
+    margin-bottom: 10px;
+}
+
+.line span {
+    color: var(--sub-color, #9796A1);
+}
+
+.text {
+    color: var(--text-color);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+
+.rate{
+    font-size: 12px;
+    padding: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 45px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    margin-bottom: 30px;
+}
+
+.rate img {
+    display: block;
+    width: 38%;
+    
+}
+
+.hr {
+    margin: 0;
+    border: 1px solid #e2e2e2;
+    margin-bottom: 10px;
+}
+
+.list{
+    margin-bottom: 10px;
+    color: #5f5f64;
+}
+
+.ingredients{
+    color: #9796A1;
+}
+
+.add{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+@media (max-width:980px) {
+
+
+    .product{
+        max-width: 412px;
+    }
+
+    .box{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .image{
+        height: 200px;
+    }
+    
+}
+
+
+@media (max-width:470px) {
+
+    .image{
+        width: 100%;
+        min-width: 200px;
+    }
+
+    .header {
+            gap: 8px;
+    }
+
+    .box{
+        margin-bottom: 10px;
+    }
+
+    .add{
+        margin-bottom: 20px;
+    }
+
+    .title{
+        font-size: 30px;
+    }
+
+}

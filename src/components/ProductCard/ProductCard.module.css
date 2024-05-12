@@ -1,7 +1,11 @@
+.link{
+    -webkit-tap-highlight-color: transparent
+}
 .card{
     /* background-color: var(--white-color); */
     border-radius: 19px;
     transition: all .3s ease;
+    -webkit-tap-highlight-color: transparent
 }
 
 .card:hover{

@@ -5,14 +5,14 @@ import { useEffect, useState } from 'react';
 
  export default function AuthLayout(){
 
-    const [width, setWidth] = useState<number | string>(document.body.offsetWidth)
+    const [width, setWidth] = useState<number>(+document.body.offsetWidth)
     
     useEffect(()=>{
         window.addEventListener('resize', function(){ setWidth(document.body.offsetWidth)})
     },[])
 
     console.log(authIMG)
-    return  <div className={styles['layout']}>
+    return  <div style={{backgroundImage: (width > 500) ? 'none': `url(${authIMG})`}} className={styles['layout']}>
         
         <div className={styles['auth']}> 
             <img  src={authIMG} alt="иконка авторазации" />

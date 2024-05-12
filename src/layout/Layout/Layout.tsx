@@ -18,6 +18,7 @@ import { AppDispatch, RootState } from "../../store/store";
     const navigate = useNavigate()
     const dispatch = useDispatch<AppDispatch>()
     const profile = useSelector((s: RootState) => s.user.profile)
+    const items = useSelector( (s: RootState) => s.cart.items)
 
     const [statusBurger, setStatusBurger] = useState<boolean>(false)
 
@@ -59,7 +60,9 @@ import { AppDispatch, RootState } from "../../store/store";
                     [styles['active']]: location.pathname === '/FoodClub/cart'
                 })}>
                     <img src={cartIMG} alt="лого корзины" />
-                    Корзина</Link>
+                    К<span className = {styles["cart-count"]}>{items.reduce( (acc, el) => acc += el.count, 0)}</span>рзина 
+                    </Link>
+                    
             </div>
 {/*  end */}
 

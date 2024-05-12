@@ -8,7 +8,7 @@ export default function MenuList({products}:MenuListProprs){
                 return <ProductCard 
                     key={p.id}
                     id = {p.id}
-                    title={p.title}
+                    name={p.name}
                     ingredients={p.ingredients.join(', ')} 
                     rating={p.rating}
                     price={p.price}
